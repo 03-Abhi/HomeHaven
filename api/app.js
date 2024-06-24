@@ -36,12 +36,14 @@ app.use("/api/test", testRoute);
 app.use("/api/chats", chatRoute);
 app.use("/api/messages", messageRoute);
 
-app.listen(8800, () => {
-  console.log("Server is running!");
-});
-
 app.use(express.static(path.join(__dirname, "/client/dist ")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
+
+app.listen(8800, () => {
+  console.log("Server is running!");
+});
+
+
